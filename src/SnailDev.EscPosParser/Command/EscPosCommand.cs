@@ -4,7 +4,8 @@ using System.Text;
 
 namespace SnailDev.EscPosParser
 {
-    public class Class1
+    public abstract class EscPosCommand : Command
     {
+
     }
 }
