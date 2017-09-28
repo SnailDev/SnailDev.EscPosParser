@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SnailDev.EscPosParser
 {
-    public class EscPosCommandWithThreeArg : EscPosCommand
+    public class EscPosCommandWithThreeArgs : EscPosCommand
     {
         protected char arg1 { get; set; }
         protected char arg2 { get; set; }

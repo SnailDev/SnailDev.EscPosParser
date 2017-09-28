@@ -39,10 +39,34 @@
     <Compile Include="Command\EscPosCommand.cs" />
     <Compile Include="Command\EscPosCommandWithData.cs" />
     <Compile Include="Command\DataCommand.cs" />
-    <Compile Include="Command\EscPosCommandWithThreeArg.cs" />
-    <Compile Include="Command\EscPosCommandWithTwoArg.cs" />
+    <Compile Include="Command\EscPosCommandWithThreeArgs.cs" />
+    <Compile Include="Command\EscPosCommandWithTwoArgs.cs" />
     <Compile Include="Command\EscPosCommandWithOneArg.cs" />
+    <Compile Include="PrintCommand\EnableEmphasisCommand.cs" />
+    <Compile Include="PrintCommand\PrintAndReverseFeedLinesCommand.cs" />
+    <Compile Include="PrintCommand\SelectJustificationCommand.cs" />
+    <Compile Include="PrintCommand\SelectFontCommand.cs" />
+    <Compile Include="PrintCommand\EnableDoubleStrikeCommand.cs" />
+    <Compile Include="Interface\IInlineFormatting.cs" />
+    <Compile Include="Interface\ILineBreak.cs" />
+    <Compile Include="PrintCommand\EnablePanelButtonsCommand.cs" />
+    <Compile Include="PrintCommand\PrintAndFeedCommand.cs" />
+    <Compile Include="PrintCommand\LineFeedCommand.cs" />
+    <Compile Include="PrintCommand\InitializeCommand.cs" />
+    <Compile Include="PrintCommand\SelectDefaultLineSpacingCommand.cs" />
+    <Compile Include="PrintCommand\SelectPrintStopSensorsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PrintCommand\SelectPrintModeCommand.cs" />
+    <Compile Include="PrintCommand\SelectPeripheralDeviceCommand.cs" />
+    <Compile Include="PrintCommand\SelectPaperEndSensorsCommand.cs" />
+    <Compile Include="PrintCommand\SelectLineSpacingCommand.cs" />
+    <Compile Include="PrintCommand\SelectInternationalCharacterSetCommand.cs" />
+    <Compile Include="PrintCommand\EnableUnderlineCommand.cs" />
+    <Compile Include="PrintCommand\SelectCodeTableCommand.cs" />
+    <Compile Include="PrintCommand\SetAbsolutePrintPosCommand.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Profile\DefaultCommands.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

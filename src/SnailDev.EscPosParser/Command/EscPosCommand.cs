@@ -4,8 +4,11 @@ using System.Text;
 
 namespace SnailDev.EscPosParser
 {
-    public abstract class EscPosCommand : Command
+    public class EscPosCommand : Command
     {
-
+        public override bool AddChar(char chr)
+        {
+            return false;
+        }
     }
 }

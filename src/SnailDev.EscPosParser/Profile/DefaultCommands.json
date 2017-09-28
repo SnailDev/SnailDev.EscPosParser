@@ -1,0 +1,79 @@
+﻿{
+  "BeginCommands": {
+    "\u0000": "NUL",
+    "\u0009": "HT",
+    "\u000A": "LF",
+    "\u000C": "FF",
+    "\u000D": "CR",
+    "\u001B": "ESC",
+    "\u001D": "GS",
+    "\u001C": "FS",
+    "\u0010": "DLE",
+    "\u0018": "CAN"
+  },
+  "CommandsTree": {
+    "HT": "HorizontalTabCommand",
+    "LF": "LineFeedCommand",
+    "FF": "FormFeedCommand",
+    "CR": "CarriageReturnCommand",
+    "ESC": {
+      "@": "InitializeCommand",
+      "!": "SelectPrintModeCommand",
+      "=": "SelectPeripheralDeviceCommand",
+      "c": {
+        "0": "UnknownEscPosCommandWithOneArg",
+        "1": "UnknownEscPosCommandWithOneArg",
+        "3": "SelectPaperEndSensorsCommand",
+        "4": "SelectPrintStopSensorsCommand",
+        "5": "EnablePanelButtonsCommand"
+      },
+      "2": "SelectDefaultLineSpacingCommand",
+      "3": "SelectLineSpacingCommand",
+      "R": "SelectInternationalCharacterSetCommand",
+      "t": "SelectCodeTableCommand",
+      "J": "PrintAndFeedCommand",
+      "-": "EnableUnderlineCommand",
+      "d": "PrintAndFeedLinesCommand",
+      "G": "EnableDoubleStrikeCommand",
+      "M": "SelectFontCommand",
+      "a": "SelectJustificationCommand",
+      "e": "PrintAndReverseFeedLinesCommand",
+      "$": "SetAbsolutePrintPosCommand",
+      "E": "EnableEmphasisCommand",
+      "p": "PulseCommand"
+    },
+    "GS": {
+      "!": "SelectCharacterSizeCommand",
+      "V": "FeedAndCutCommand",
+      "b": "EnableSmoothingCommand",
+      "(": {
+        "C": {},
+        "E": {},
+        "H": "RequestResponseTransmissionCommand",
+        "K": {},
+        "L": "GraphicsDataCommand",
+        "k": "Code2DDataCommand",
+        // Don't know what this command is, but could be a data command
+        "J": "UnknownEscPosCommandWithData"
+      },
+      "h": "SetBarcodeHeightCommand",
+      "H": "SelectHriPrintPosCommand",
+      "k": "PrintBarcodeCommand",
+      "v": {
+        "0": "PrintRasterBitImageCommand"
+      },
+      "8": {
+        "L": "GraphicsLargeDataCmd"
+      },
+      // Set horizontal and vertical motion units. args are x and y
+      "P": "EscPosCommandWithTwoArgs"
+    },
+    "FS": {
+
+    },
+    "DLE": {
+
+    },
+    "CAN": "CancelCommand"
+  }
+}
