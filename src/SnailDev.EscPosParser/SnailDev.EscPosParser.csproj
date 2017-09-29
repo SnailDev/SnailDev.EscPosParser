@@ -38,6 +38,8 @@
     <Compile Include="Command\Command.cs" />
     <Compile Include="Command\DataCommand\BarcodeADataCommand.cs" />
     <Compile Include="Command\DataCommand\BarcodeBDataCommand.cs" />
+    <Compile Include="Command\DataCommand\TextCommand.cs" />
+    <Compile Include="Command\Interface\IImageContainer.cs" />
     <Compile Include="Command\PrintCommand\CancelCommand.cs" />
     <Compile Include="Command\PrintCommand\CarriageReturnCommand.cs" />
     <Compile Include="Command\PrintCommand\Code2DDataCommand.cs" />
@@ -69,8 +71,8 @@
     <Compile Include="Command\PrintCommand\SelectFontCommand.cs" />
     <Compile Include="Command\PrintCommand\EnableDoubleStrikeCommand.cs" />
     <Compile Include="Command\PrintCommand\SelectPrintColorCommand.cs" />
-    <Compile Include="Interface\IInlineFormatting.cs" />
-    <Compile Include="Interface\ILineBreak.cs" />
+    <Compile Include="Command\Interface\IInlineFormatting.cs" />
+    <Compile Include="Command\Interface\ILineBreak.cs" />
     <Compile Include="Command\PrintCommand\EnablePanelButtonsCommand.cs" />
     <Compile Include="Command\PrintCommand\PrintAndFeedCommand.cs" />
     <Compile Include="Command\PrintCommand\LineFeedCommand.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Command\DataCommand\UnknownDataCommand.cs" />
     <Compile Include="Command\PrintCommand\SetBarcodeHeightCommand.cs" />
     <Compile Include="Command\PrintCommand\UnknownEscPosCommandWithData.cs" />
+    <Compile Include="Command\Interface\ITextContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Command\PrintCommand\SelectPrintModeCommand.cs" />
     <Compile Include="Command\PrintCommand\SelectPeripheralDeviceCommand.cs" />
