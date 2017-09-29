@@ -23,6 +23,15 @@ namespace SnailDev.EscPosParser
         /// constructor
         /// </summary>
         /// <param name="dataSize"></param>
+        public DataCommand()
+        {
+            DataSize = 0;
+        }
+
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="dataSize"></param>
         public DataCommand(long dataSize)
         {
             DataSize = dataSize;

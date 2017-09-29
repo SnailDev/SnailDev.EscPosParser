@@ -63,7 +63,7 @@
         "0": "PrintRasterBitImageCommand"
       },
       "8": {
-        "L": "GraphicsLargeDataCmd"
+        "L": "GraphicsLargeDataCommand"
       },
       // Set horizontal and vertical motion units. args are x and y
       "P": "EscPosCommandWithTwoArgs"

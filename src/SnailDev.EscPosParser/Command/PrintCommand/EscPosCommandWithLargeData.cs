@@ -4,19 +4,10 @@ using System.Text;
 
 namespace SnailDev.EscPosParser
 {
-    public class EscPosCommandWithData : EscPosCommand
+    public class EscPosCommandWithLargeData : EscPosCommandWithData
     {
-        protected char cmd1 { get; set; }
-
-        protected char cmd2 { get; set; }
-
-        protected char arg1 { get; set; }
-
-        protected char arg2 { get; set; }
-
-        protected long cmdSize { get; set; }
-
-        protected DataCommand dataCommand { get; set; }
+        private char cmd3 { get; set; }
+        private char cmd4 { get; set; }
 
         public override bool AddChar(char chr)
         {
@@ -28,7 +19,17 @@ namespace SnailDev.EscPosParser
             else if (cmd2 == Char.MinValue)
             {
                 cmd2 = chr;
-                cmdSize = (int)cmd1 + (int)cmd2 * 256;
+                return true;
+            }
+            else if (cmd3 == Char.MinValue)
+            {
+                cmd3 = chr;
+                return true;
+            }
+            else if (cmd4 == Char.MinValue)
+            {
+                cmd4 = chr;
+                cmdSize = (int)cmd1 + (int)cmd2 * 256 + (int)cmd3 * 65536 + (int)cmd4 * 16777216;
                 return true;
             }
             else if (arg1 == Char.MinValue)
@@ -39,7 +40,7 @@ namespace SnailDev.EscPosParser
             else if (arg2 == Char.MinValue)
             {
                 arg2 = chr;
-                dataCommand = new DataCommand(cmdSize - 2);
+                dataCommand = new UnknownDataCommand(cmdSize - 2);
                 return true;
             }
 
