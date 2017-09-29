@@ -6,5 +6,6 @@ namespace SnailDev.EscPosParser
 {
     public class UnknownEscPosCommandWithData : EscPosCommandWithData
     {
+
     }
 }

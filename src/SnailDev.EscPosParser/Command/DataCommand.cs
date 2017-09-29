@@ -5,7 +5,7 @@ using System.Text;
 namespace SnailDev.EscPosParser
 {
     /// <summary>
-    /// data struct
+    /// data command
     /// </summary>
     public class DataCommand : Command
     {

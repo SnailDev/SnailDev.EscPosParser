@@ -44,9 +44,9 @@
     <Compile Include="Command\DataCommand\PrintBufferredDataGraphicsSubCommand.cs" />
     <Compile Include="Command\DataCommand\StoreColumnFmtDataToPrintBufferGraphicsSubCommand.cs" />
     <Compile Include="Command\DataCommand\StoreRasterFmtDataToPrintBufferGraphicsSubCommand.cs" />
-    <Compile Include="Command\PrintCommand\EscPosCommand.cs" />
+    <Compile Include="Command\EscPosCommand.cs" />
     <Compile Include="Command\PrintCommand\EscPosCommandWithData.cs" />
-    <Compile Include="Command\DataCommand\DataCommand.cs" />
+    <Compile Include="Command\DataCommand.cs" />
     <Compile Include="Command\PrintCommand\EscPosCommandWithLargeData.cs" />
     <Compile Include="Command\PrintCommand\EscPosCommandWithThreeArgs.cs" />
     <Compile Include="Command\PrintCommand\EscPosCommandWithTwoArgs.cs" />
@@ -57,6 +57,7 @@
     <Compile Include="Command\PrintCommand\GraphicsDataCommand.cs" />
     <Compile Include="Command\PrintCommand\GraphicsLargeDataCommand.cs" />
     <Compile Include="Command\PrintCommand\HorizontalTabCommand.cs" />
+    <Compile Include="Command\PrintCommand\PrintAndFeedLinesCommand.cs" />
     <Compile Include="Command\PrintCommand\PrintAndReverseFeedLinesCommand.cs" />
     <Compile Include="Command\PrintCommand\PrintBarcodeCommand.cs" />
     <Compile Include="Command\PrintCommand\PrintRasterBitImageCommand.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Command\PrintCommand\SelectJustificationCommand.cs" />
     <Compile Include="Command\PrintCommand\SelectFontCommand.cs" />
     <Compile Include="Command\PrintCommand\EnableDoubleStrikeCommand.cs" />
+    <Compile Include="Command\PrintCommand\SelectPrintColorCommand.cs" />
     <Compile Include="Interface\IInlineFormatting.cs" />
     <Compile Include="Interface\ILineBreak.cs" />
     <Compile Include="Command\PrintCommand\EnablePanelButtonsCommand.cs" />
