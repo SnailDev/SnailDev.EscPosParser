@@ -19,9 +19,8 @@ namespace SnailDev.EscPostParser.Example
         {
             ParserProfile profile = new ParserProfile();
             ParserContext context = new ParserContext(profile, true);
-            using (FileStream fs = new FileStream(@"D:\123.bin", FileMode.Open, FileAccess.Read))
+            using (FileStream fs = new FileStream(@"D:\receipt-text.bin", FileMode.Open, FileAccess.Read))
             {
-                //WirteBin(fs, File.ReadAllText(@"D:\\123.txt", Encoding.ASCII), 0);
                 BinaryReader br = new BinaryReader(fs, Encoding.Default);
                 while (br.PeekChar() != -1)
                 {
