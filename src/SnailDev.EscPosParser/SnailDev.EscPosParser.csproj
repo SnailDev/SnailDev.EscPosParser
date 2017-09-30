@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net20\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -83,6 +87,9 @@
     <Compile Include="Command\PrintCommand\SetBarcodeHeightCommand.cs" />
     <Compile Include="Command\PrintCommand\UnknownEscPosCommandWithData.cs" />
     <Compile Include="Command\Interface\ITextContainer.cs" />
+    <Compile Include="Command\PrintCommand\UnknownEscPosCommandWithOneArg.cs" />
+    <Compile Include="ParserContext.cs" />
+    <Compile Include="ParserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Command\PrintCommand\SelectPrintModeCommand.cs" />
     <Compile Include="Command\PrintCommand\SelectPeripheralDeviceCommand.cs" />
@@ -94,7 +101,10 @@
     <Compile Include="Command\PrintCommand\SetAbsolutePrintPosCommand.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Profile\DefaultCommands.json" />
+    <None Include="packages.config" />
+    <None Include="Profile\DefaultCommands.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

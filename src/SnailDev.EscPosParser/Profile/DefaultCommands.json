@@ -12,11 +12,11 @@
     "\u0018": "CAN"
   },
   "CommandsTree": {
-    "HT": "HorizontalTabCommand",
-    "LF": "LineFeedCommand",
-    "FF": "FormFeedCommand",
-    "CR": "CarriageReturnCommand",
-    "ESC": {
+   "\u0009":"HorizontalTabCommand",
+   "\u000A":"LineFeedCommand",
+   "\u000C":"FormFeedCommand",
+   "\u000D":"CarriageReturnCommand",
+   "\u001B": {
       "@": "InitializeCommand",
       "!": "SelectPrintModeCommand",
       "=": "SelectPeripheralDeviceCommand",
@@ -42,7 +42,7 @@
       "E": "EnableEmphasisCommand",
       "p": "PulseCommand"
     },
-    "GS": {
+    "\u001D": {
       "!": "SelectCharacterSizeCommand",
       "V": "FeedAndCutCommand",
       "b": "EnableSmoothingCommand",
@@ -68,12 +68,12 @@
       // Set horizontal and vertical motion units. args are x and y
       "P": "EscPosCommandWithTwoArgs"
     },
-    "FS": {
+    "\u001C": {
 
     },
-    "DLE": {
+    "\u0010": {
 
     },
-    "CAN": "CancelCommand"
+    "\u0018": "CancelCommand"
   }
 }

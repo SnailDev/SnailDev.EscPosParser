@@ -40,6 +40,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SnailDev.EscPosParser\SnailDev.EscPosParser.csproj">
+      <Project>{db7d81eb-bfc8-4432-983f-02bbcfb21568}</Project>
+      <Name>SnailDev.EscPosParser</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="textbin\receipt-text.bin" />
+    <None Include="textbin\receipt-with-logo.bin" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

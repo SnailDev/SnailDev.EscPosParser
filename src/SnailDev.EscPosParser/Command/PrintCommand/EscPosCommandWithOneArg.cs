@@ -12,7 +12,7 @@ namespace SnailDev.EscPosParser
         {
             if (this.arg == Char.MinValue)
             {
-                this.arg = arg;
+                this.arg = chr;
                 return true;
             }
 

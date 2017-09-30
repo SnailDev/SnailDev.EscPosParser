@@ -8,4 +8,4 @@ log
 *.pubxml
 .vs
 /source/.vs
-package
+packages
