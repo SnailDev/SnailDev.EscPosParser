@@ -58,6 +58,7 @@ namespace SnailDev.EscPosParser
 
         public void AddChar(char chr)
         {
+            System.Diagnostics.Debug.WriteLine(chr);
             if (searchStack.Count > 0)
             {
                 // Matching parts of a command now.
