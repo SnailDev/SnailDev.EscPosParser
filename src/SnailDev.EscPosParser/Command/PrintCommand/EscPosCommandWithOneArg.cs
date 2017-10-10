@@ -6,11 +6,11 @@ namespace SnailDev.EscPosParser
 {
     public class EscPosCommandWithOneArg : EscPosCommand
     {
-        protected char arg { get; set; }
+        protected char? arg { get; set; }
 
         public override bool AddChar(char chr)
         {
-            if (this.arg == Char.MinValue)
+            if (!this.arg.HasValue)
             {
                 this.arg = chr;
                 return true;

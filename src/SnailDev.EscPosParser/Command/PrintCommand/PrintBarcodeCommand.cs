@@ -6,12 +6,12 @@ namespace SnailDev.EscPosParser
 {
     public class PrintBarcodeCommand : EscPosCommand
     {
-        private char mode { get; set; }
+        private char? mode { get; set; }
         private DataCommand dataCommand { get; set; }
 
         public override bool AddChar(char chr)
         {
-            if (mode == Char.MinValue)
+            if (!mode.HasValue)
             {
                 mode = chr;
                 var modeInt = (int)mode;

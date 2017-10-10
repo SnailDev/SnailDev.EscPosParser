@@ -10,12 +10,12 @@ namespace SnailDev.EscPosParser
 
         public override bool AddChar(char chr)
         {
-            if (arg1 == Char.MinValue)
+            if (!arg1.HasValue)
             {
                 this.arg1 = chr;
                 return true;
             }
-            else if (argArr.Contains(((int)arg1).ToString("X2")) || arg2 != Char.MinValue)
+            else if (argArr.Contains(((int)arg1).ToString("X2")) || !arg2.HasValue)
             {
                 // One arg only, or arg already set
                 return false;

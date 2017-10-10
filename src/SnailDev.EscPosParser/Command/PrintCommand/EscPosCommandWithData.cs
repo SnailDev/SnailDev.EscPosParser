@@ -6,13 +6,13 @@ namespace SnailDev.EscPosParser
 {
     public class EscPosCommandWithData : EscPosCommand
     {
-        protected char cmd1 { get; set; }
+        protected char? cmd1 { get; set; }
 
-        protected char cmd2 { get; set; }
+        protected char? cmd2 { get; set; }
 
-        protected char arg1 { get; set; }
+        protected char? arg1 { get; set; }
 
-        protected char arg2 { get; set; }
+        protected char? arg2 { get; set; }
 
         protected long cmdSize { get; set; }
 
@@ -20,26 +20,26 @@ namespace SnailDev.EscPosParser
 
         public override bool AddChar(char chr)
         {
-            if (cmd1 == Char.MinValue)
+            if (!cmd1.HasValue)
             {
                 cmd1 = chr;
                 return true;
             }
-            else if (cmd2 == Char.MinValue)
+            else if (!cmd2.HasValue)
             {
                 cmd2 = chr;
                 cmdSize = (int)cmd1 + (int)cmd2 * 256;
                 return true;
             }
-            else if (arg1 == Char.MinValue)
+            else if (!arg1.HasValue)
             {
                 arg1 = chr;
                 return true;
             }
-            else if (arg2 == Char.MinValue)
+            else if (!arg2.HasValue)
             {
                 arg2 = chr;
-                dataCommand = GetDataCommand(arg1, arg2, cmdSize - 2);
+                dataCommand = GetDataCommand(arg1.Value, arg2.Value, cmdSize - 2);
                 return true;
             }
 
