@@ -26,6 +26,7 @@ namespace SnailDev.EscPosParser
         public DataCommand()
         {
             DataSize = 0;
+            Data = new StringBuilder();
         }
 
         /// <summary>
@@ -35,6 +36,7 @@ namespace SnailDev.EscPosParser
         public DataCommand(long dataSize)
         {
             DataSize = dataSize;
+            Data = new StringBuilder();
         }
 
         /// <summary>
@@ -44,11 +46,6 @@ namespace SnailDev.EscPosParser
         /// <returns></returns>
         public override bool AddChar(char chr)
         {
-            if (Data == null)
-            {
-                Data = new StringBuilder();
-            }
-
             if (Data.Length < DataSize)
             {
                 Data.Append(chr);

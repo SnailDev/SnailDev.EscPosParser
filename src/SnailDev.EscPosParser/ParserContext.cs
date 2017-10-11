@@ -8,8 +8,6 @@ namespace SnailDev.EscPosParser
 {
     public class ParserContext
     {
-        private bool isDebug { get; set; }
-
         private ParserProfile profile { get; set; }
 
         private List<Command> commands { get; set; }
@@ -18,9 +16,8 @@ namespace SnailDev.EscPosParser
 
         private Stack<string> searchStack { get; set; }
 
-        public ParserContext(ParserProfile profile, bool isDebug = false)
+        public ParserContext(ParserProfile profile)
         {
-            this.isDebug = isDebug;
             this.profile = profile;
             commands = new List<Command>();
             Reset();
@@ -48,8 +45,6 @@ namespace SnailDev.EscPosParser
             else
             {
                 var type = string.Concat("SnailDev.EscPosParser.", search[arg]);
-                if (isDebug) System.Diagnostics.Debug.WriteLine(type);
-
                 Assembly assembly = Assembly.GetExecutingAssembly(); // Get current assembly
                 commands.Add(assembly.CreateInstance(type) as Command);
                 Reset();
@@ -58,7 +53,7 @@ namespace SnailDev.EscPosParser
 
         public void AddChar(char chr)
         {
-            System.Diagnostics.Debug.WriteLine(chr);
+            //System.Diagnostics.Debug.WriteLine(chr);
             if (searchStack.Count > 0)
             {
                 // Matching parts of a command now.

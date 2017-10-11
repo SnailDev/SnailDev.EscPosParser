@@ -10,21 +10,23 @@ namespace SnailDev.EscPostParser.Example
     {
         static void Main(string[] args)
         {
-            ParserBinToText();
+            ParserBinToText(true);
 
             Console.ReadLine();
         }
 
-        static void ParserBinToText()
+        static void ParserBinToText(bool isdebug)
         {
             ParserProfile profile = new ParserProfile();
-            ParserContext context = new ParserContext(profile, true);
-            using (FileStream fs = new FileStream(@"D:\receipt-text.bin", FileMode.Open, FileAccess.Read))
+            ParserContext context = new ParserContext(profile);
+            using (FileStream fs = new FileStream(@"D:\receipt-with-logo.bin", FileMode.Open))
             {
-                BinaryReader br = new BinaryReader(fs, Encoding.Default);
-                while (br.PeekChar() != -1)
+                BinaryReader br = new BinaryReader(fs);
+                byte[] bytes = br.ReadBytes((int)fs.Length);
+
+                foreach (var bye in bytes)
                 {
-                    context.AddChar(br.ReadChar());
+                    context.AddChar((char)bye);
                 }
 
                 br.Close();
@@ -35,6 +37,21 @@ namespace SnailDev.EscPostParser.Example
             var commands = context.GetCommands();
             foreach (var command in commands)
             {
+                if (isdebug)
+                {
+                    // Debug output if requested. List commands and the interface for retrieving the data.
+                    var className = command.GetType().Name;
+                    var implList = command.GetType().GetInterfaces();                
+                    var implNames = new List<string>();
+                    foreach (Type eachType in implList)
+                    {
+                        //implNames.Add(eachType.ToString());
+                        Console.WriteLine(eachType.ToString());
+                    }
+
+                    //var implStr = implNames.Count == 0 ? "" : $"({string.Join(",", implNames.ToArray())})";
+                    //Console.WriteLine($"[DEBUG] {className} {implNames}");
+                }
                 if (command.GetType().GetInterface("ITextContainer") != null)
                 {
                     Console.Write((command as TextCommand).GetContent());
