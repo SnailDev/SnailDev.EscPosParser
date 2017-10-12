@@ -6,7 +6,7 @@ namespace SnailDev.EscPosParser
 {
     public class FeedAndCutCommand : EscPosCommandWithTwoArgs
     {
-        private List<string> argArr = new List<string>() { "00", "48", "01", "49" };
+        private List<int> argArr = new List<int>() { 0x00, 0x48, 0x01, 0x49 };
 
         public override bool AddChar(char chr)
         {
@@ -15,7 +15,7 @@ namespace SnailDev.EscPosParser
                 this.arg1 = chr;
                 return true;
             }
-            else if (argArr.Contains(((int)arg1).ToString("X2")) || !arg2.HasValue)
+            else if (argArr.Contains((int)arg1) || arg2.HasValue)
             {
                 // One arg only, or arg already set
                 return false;

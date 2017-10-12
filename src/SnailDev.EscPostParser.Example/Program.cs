@@ -10,7 +10,7 @@ namespace SnailDev.EscPostParser.Example
     {
         static void Main(string[] args)
         {
-            ParserBinToText(true);
+            ParserBinToText(false);
 
             Console.ReadLine();
         }
@@ -33,7 +33,6 @@ namespace SnailDev.EscPostParser.Example
                 fs.Close();
             }
 
-
             var commands = context.GetCommands();
             foreach (var command in commands)
             {
@@ -41,16 +40,15 @@ namespace SnailDev.EscPostParser.Example
                 {
                     // Debug output if requested. List commands and the interface for retrieving the data.
                     var className = command.GetType().Name;
-                    var implList = command.GetType().GetInterfaces();                
+                    var implList = command.GetType().GetInterfaces();
                     var implNames = new List<string>();
-                    foreach (Type eachType in implList)
+                    foreach (var eachType in implList)
                     {
-                        //implNames.Add(eachType.ToString());
-                        Console.WriteLine(eachType.ToString());
+                        implNames.Add(eachType.Name);
                     }
 
-                    //var implStr = implNames.Count == 0 ? "" : $"({string.Join(",", implNames.ToArray())})";
-                    //Console.WriteLine($"[DEBUG] {className} {implNames}");
+                    var implStr = implNames.Count == 0 ? "" : $"({string.Join(",", implNames.ToArray())})";
+                    Console.WriteLine($"[DEBUG] {className} {implStr}");
                 }
                 if (command.GetType().GetInterface("ITextContainer") != null)
                 {

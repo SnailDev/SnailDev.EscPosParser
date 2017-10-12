@@ -60,6 +60,7 @@
     <Compile Include="Command\PrintCommand\EnableEmphasisCommand.cs" />
     <Compile Include="Command\PrintCommand\EnableSmoothingCommand.cs" />
     <Compile Include="Command\PrintCommand\FeedAndCutCommand.cs" />
+    <Compile Include="Command\PrintCommand\FormFeedCommand.cs" />
     <Compile Include="Command\PrintCommand\GraphicsDataCommand.cs" />
     <Compile Include="Command\PrintCommand\GraphicsLargeDataCommand.cs" />
     <Compile Include="Command\PrintCommand\HorizontalTabCommand.cs" />
