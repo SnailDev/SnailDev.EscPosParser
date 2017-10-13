@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FreeImageAPI;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -94,20 +95,19 @@ namespace SnailDev.EscPosParser
             return y1.Value + y2.Value * 256;
         }
 
-        public string asPbm()
+        /// <summary>
+        /// pbm image format
+        /// </summary>
+        /// <returns></returns>
+        public string AsPbm()
         {
-            return "P4\n";//. $this->getWidth(). " ". $this->getHeight(). "\n". $this->data;
+            return $"P4\n{GetWidth()} {GetHeight()}\n{Data}";
         }
 
-        public Stream asPng()
+        public FreeImageBitmap AsPng()
         {
-            return null;
-            //$pbmBlob = $this->asPbm();
-            //$im = new Imagick();
-            //$im->readImageBlob($pbmBlob, 'pbm');
-            //$im->setResourceLimit(6, 1); // Prevent libgomp1 segfaults, grumble grumble.
-            //$im->setFormat('png');
-            //    return $im->getImageBlob();
+            var pbmImage = AsPbm();
+            return new FreeImageBitmap(new MemoryStream(Encoding.UTF8.GetBytes(pbmImage)));
         }
     }
 }

@@ -46,9 +46,14 @@ namespace SnailDev.EscPosParser
             return dataCommand.AddChar(chr);
         }
 
-        public virtual DataCommand GetDataCommand(char arg1, char arg2, long dataSize)
+        protected virtual DataCommand GetDataCommand(char arg1, char arg2, long dataSize)
         {
             return new UnknownDataCommand(dataSize);
+        }
+
+        public DataCommand DataCommand()
+        {
+            return dataCommand;
         }
     }
 }

@@ -17,7 +17,8 @@ namespace SnailDev.EscPosParser.Example
 
         public void PrintText()
         {
-            var commands = parser.GetCommands(@"D:\receipt-with-logo.bin");
+            var filepath = @"D:\receipt-with-logo.bin";
+            var commands = parser.GetCommands(filepath);
             foreach (var command in commands)
             {
                 if (IsDebug)
@@ -34,11 +35,11 @@ namespace SnailDev.EscPosParser.Example
                     var implStr = implNames.Count == 0 ? "" : $"({string.Join(",", implNames.ToArray())})";
                     Console.WriteLine($"[DEBUG] {className} {implStr}");
                 }
-                if (command.GetType().GetInterface("ITextContainer") != null)
+                if (command.IsAvailableAs("ITextContainer"))
                 {
                     Console.Write((command as TextCommand).GetContent());
                 }
-                if (command.GetType().GetInterface("ILineBreak") != null)
+                if (command.IsAvailableAs("ILineBreak"))
                 {
                     Console.WriteLine();
                 }
