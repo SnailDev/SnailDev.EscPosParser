@@ -16,7 +16,7 @@ namespace SnailDev.EscPosParser
                 cmd1 = chr;
                 return true;
             }
-            else if (!@cmd2.HasValue)
+            else if (!cmd2.HasValue)
             {
                 cmd2 = chr;
                 return true;

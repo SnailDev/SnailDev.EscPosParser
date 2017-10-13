@@ -89,8 +89,8 @@
     <Compile Include="Command\PrintCommand\UnknownEscPosCommandWithData.cs" />
     <Compile Include="Command\Interface\ITextContainer.cs" />
     <Compile Include="Command\PrintCommand\UnknownEscPosCommandWithOneArg.cs" />
-    <Compile Include="ParserContext.cs" />
-    <Compile Include="ParserProfile.cs" />
+    <Compile Include="EscParser.cs" />
+    <Compile Include="EscParserContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Command\PrintCommand\SelectPrintModeCommand.cs" />
     <Compile Include="Command\PrintCommand\SelectPeripheralDeviceCommand.cs" />

@@ -1,42 +1,26 @@
 ﻿using SnailDev.EscPosParser;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
 
-namespace SnailDev.EscPostParser.Example
+namespace SnailDev.EscPosParser.Example
 {
-    class Program
+    public class Esc2Text
     {
-        static void Main(string[] args)
-        {
-            ParserBinToText(false);
+        public bool IsDebug;
+        private EscParser parser;
 
-            Console.ReadLine();
+        public Esc2Text()
+        {
+            parser = new EscParser();
         }
 
-        static void ParserBinToText(bool isdebug)
+        public void PrintText()
         {
-            ParserProfile profile = new ParserProfile();
-            ParserContext context = new ParserContext(profile);
-            using (FileStream fs = new FileStream(@"D:\receipt-with-logo.bin", FileMode.Open))
-            {
-                BinaryReader br = new BinaryReader(fs);
-                byte[] bytes = br.ReadBytes((int)fs.Length);
-
-                foreach (var bye in bytes)
-                {
-                    context.AddChar((char)bye);
-                }
-
-                br.Close();
-                fs.Close();
-            }
-
-            var commands = context.GetCommands();
+            var commands = parser.GetCommands(@"D:\receipt-with-logo.bin");
             foreach (var command in commands)
             {
-                if (isdebug)
+                if (IsDebug)
                 {
                     // Debug output if requested. List commands and the interface for retrieving the data.
                     var className = command.GetType().Name;

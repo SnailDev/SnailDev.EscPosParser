@@ -1,14 +1,15 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Text;
 
 namespace SnailDev.EscPosParser
 {
-    public class ParserContext
+    public class EscParserContext
     {
-        private ParserProfile profile { get; set; }
+        private JObject commandTree { get; set; }
 
         private List<Command> commands { get; set; }
 
@@ -16,9 +17,25 @@ namespace SnailDev.EscPosParser
 
         private Stack<string> searchStack { get; set; }
 
-        public ParserContext(ParserProfile profile)
+        public EscParserContext(string profileName)
         {
-            this.profile = profile;
+            var profilePath = $"{System.Environment.CurrentDirectory}\\Profile\\{profileName}Commands.json";
+            using (StreamReader sr = new StreamReader(profilePath))
+            {
+                try
+                {
+                    commandTree = JObject.Parse(sr.ReadToEnd())["CommandsTree"] as JObject;
+                }
+                catch
+                {
+                    throw new Exception("Your profile formatting is error.");
+                }
+                finally
+                {
+                    sr.Close();
+                }
+            }
+
             commands = new List<Command>();
             Reset();
         }
@@ -76,7 +93,7 @@ namespace SnailDev.EscPosParser
             // Has been rejected or we don't have a command yet. See if we can start a string
             if ((commands.Count == 0) || !(commands[commands.Count - 1] is TextCommand))
             {
-                var top = new TextCommand(profile.CommandTree);
+                var top = new TextCommand(this.commandTree);
                 if (top.AddChar(chr))
                 {
                     // Character was accepted to start a string.
@@ -87,7 +104,7 @@ namespace SnailDev.EscPosParser
             }
 
             // Character starts a command sequence
-            search = profile.CommandTree;
+            search = this.commandTree;
             NavigateCommand(chr.ToString());
         }
 
