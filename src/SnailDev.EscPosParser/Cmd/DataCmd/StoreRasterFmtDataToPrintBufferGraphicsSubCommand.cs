@@ -79,6 +79,7 @@ namespace SnailDev.EscPosParser
             else if (Data.Length < DataSize)
             {
                 Data.Append(chr);
+                
                 return true;
             }
 
@@ -101,6 +102,8 @@ namespace SnailDev.EscPosParser
         /// <returns></returns>
         public string AsPbm()
         {
+            // Console.WriteLine($"P4\n{GetWidth()} {GetHeight()}\n{Data}");
+
             return $"P4\n{GetWidth()} {GetHeight()}\n{Data}";
         }
 

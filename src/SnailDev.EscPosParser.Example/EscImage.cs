@@ -39,7 +39,13 @@ namespace SnailDev.EscPosParser.Example
                         imageNo++;
                         Console.WriteLine($"[ Image {imageNo}: {desc} ]");
 
-                        buff.AsPng().Save("123.png", FreeImageAPI.FREE_IMAGE_FORMAT.FIF_PNG);
+                        // buff.AsPng().Save("123.png", FreeImageAPI.FREE_IMAGE_FORMAT.FIF_PNG);
+
+                        System.IO.FileStream fs = new System.IO.FileStream("234.pbm", System.IO.FileMode.Append);
+                        System.IO.StreamWriter sr = new System.IO.StreamWriter(fs, Encoding.UTF8);
+                        sr.WriteLine(buff.AsPbm());
+                        sr.Close();
+                        fs.Close();
                     }
                 }
             }
