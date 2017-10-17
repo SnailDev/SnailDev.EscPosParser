@@ -8,7 +8,8 @@ namespace SnailDev.EscPosParser
     {
         public void applyToInlineFormatting(InlineFormatting formatting)
         {
-            throw new NotImplementedException();
+            formatting.Width = (arg.Value / 16) + 1;
+            formatting.Height = (arg.Value % 16) + 1;
         }
     }
 }

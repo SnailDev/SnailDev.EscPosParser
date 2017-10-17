@@ -19,14 +19,14 @@ namespace SnailDev.EscPosParser
 
         public int Width { get; set; }
 
-        public int height { get; set; }
+        public int Height { get; set; }
 
         public int Justification { get; set; }
 
         public InlineFormatting()
         {
             Width = 1;
-            height = 1;
+            Height = 1;
             Justification = Justify_Left;
         }
 

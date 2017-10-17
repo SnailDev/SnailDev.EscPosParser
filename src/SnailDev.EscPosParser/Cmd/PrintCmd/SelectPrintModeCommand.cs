@@ -19,7 +19,11 @@ namespace SnailDev.EscPosParser
     {
         public void applyToInlineFormatting(InlineFormatting formatting)
         {
-            
+            // TODO Add font A/B selection from this command (1)
+            formatting.Bold = (arg & 8) != 0;
+            formatting.Height = (arg & 16) != 0 ? 2 : 1;
+            formatting.Width = (arg & 32) != 0 ? 2 : 1;
+            // TODO Add underline text option from this command (128)
         }
     }
 }

@@ -20,6 +20,9 @@ namespace SnailDev.EscPosParser.Example
             EscImage image = new EscImage();
             image.ExtractImages();
 
+            Console.WriteLine("-----------------------");
+            Esc2Html html = new Esc2Html();
+            html.ExtractHtml();
 
             Console.ReadLine();
         }
