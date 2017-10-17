@@ -14,6 +14,13 @@ namespace SnailDev.EscPosParser.Example
             Esc2Text esc2text = new Esc2Text();
             esc2text.PrintText();
 
+            Console.WriteLine("-----------------------");
+
+            // parser image
+            EscImage image = new EscImage();
+            image.ExtractImages();
+
+
             Console.ReadLine();
         }
     }

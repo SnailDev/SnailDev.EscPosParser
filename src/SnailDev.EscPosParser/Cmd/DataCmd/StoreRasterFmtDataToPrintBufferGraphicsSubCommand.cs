@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FreeImageAPI;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -78,6 +79,7 @@ namespace SnailDev.EscPosParser
             else if (Data.Length < DataSize)
             {
                 Data.Append(chr);
+
                 return true;
             }
 
@@ -94,20 +96,28 @@ namespace SnailDev.EscPosParser
             return y1.Value + y2.Value * 256;
         }
 
-        public string asPbm()
+        /// <summary>
+        /// pbm image format
+        /// </summary>
+        /// <returns></returns>
+        public byte[] AsPbm()
         {
-            return "P4\n";//. $this->getWidth(). " ". $this->getHeight(). "\n". $this->data;
+            var pbmStr = $"P4\n{GetWidth()} {GetHeight()}\n{Data}";
+            var pbmChrs = pbmStr.ToCharArray();
+
+            byte[] pbmBytes = new byte[pbmChrs.Length];
+            for (int i = 0; i < pbmChrs.Length; i++)
+            {
+                pbmBytes[i] = (byte)pbmChrs[i];
+            }
+
+            return pbmBytes;
         }
 
-        public Stream asPng()
+        public FreeImageBitmap AsPng()
         {
-            return null;
-            //$pbmBlob = $this->asPbm();
-            //$im = new Imagick();
-            //$im->readImageBlob($pbmBlob, 'pbm');
-            //$im->setResourceLimit(6, 1); // Prevent libgomp1 segfaults, grumble grumble.
-            //$im->setFormat('png');
-            //    return $im->getImageBlob();
+            var pbmImage = AsPbm();
+            return new FreeImageBitmap(new MemoryStream(pbmImage));
         }
     }
 }

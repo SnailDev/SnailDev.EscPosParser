@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SnailDev.EscPosParser
 {
-    public class GraphicsLargeDataCommand : EscPosCommandWithLargeData
+    public class GraphicsDataCommand : EscPosCommandWithData
     {
-        public override DataCommand GetDataCommand(char arg1, char arg2, long dataSize)
+        protected override DataCommand GetDataCommand(char arg1, char arg2, long dataSize)
         {
             var arg2Int = (int)arg2;
             if (arg2Int == 0 || arg2Int == 48)
