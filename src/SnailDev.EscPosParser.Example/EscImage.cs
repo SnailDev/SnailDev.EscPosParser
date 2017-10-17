@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,12 +40,11 @@ namespace SnailDev.EscPosParser.Example
                         imageNo++;
                         Console.WriteLine($"[ Image {imageNo}: {desc} ]");
 
-                        // buff.AsPng().Save("123.png", FreeImageAPI.FREE_IMAGE_FORMAT.FIF_PNG);
+                        buff.AsPng().Save("receipt-with-logo.png", FreeImageAPI.FREE_IMAGE_FORMAT.FIF_PNG);
 
-                        System.IO.FileStream fs = new System.IO.FileStream("234.pbm", System.IO.FileMode.Append);
-                        System.IO.StreamWriter sr = new System.IO.StreamWriter(fs, Encoding.UTF8);
-                        sr.WriteLine(buff.AsPbm());
-                        sr.Close();
+                        FileStream fs = new FileStream("receipt-with-logo.pbm", FileMode.Create, FileAccess.Write);                                 
+                        fs.Write(buff.AsPbm(), 0, buff.AsPbm().Length);
+                        fs.Flush();
                         fs.Close();
                     }
                 }

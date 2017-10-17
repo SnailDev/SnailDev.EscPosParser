@@ -79,7 +79,7 @@ namespace SnailDev.EscPosParser
             else if (Data.Length < DataSize)
             {
                 Data.Append(chr);
-                
+
                 return true;
             }
 
@@ -100,17 +100,24 @@ namespace SnailDev.EscPosParser
         /// pbm image format
         /// </summary>
         /// <returns></returns>
-        public string AsPbm()
+        public byte[] AsPbm()
         {
-            // Console.WriteLine($"P4\n{GetWidth()} {GetHeight()}\n{Data}");
+            var pbmStr = $"P4\n{GetWidth()} {GetHeight()}\n{Data}";
+            var pbmChrs = pbmStr.ToCharArray();
 
-            return $"P4\n{GetWidth()} {GetHeight()}\n{Data}";
+            byte[] pbmBytes = new byte[pbmChrs.Length];
+            for (int i = 0; i < pbmChrs.Length; i++)
+            {
+                pbmBytes[i] = (byte)pbmChrs[i];
+            }
+
+            return pbmBytes;
         }
 
         public FreeImageBitmap AsPng()
         {
             var pbmImage = AsPbm();
-            return new FreeImageBitmap(new MemoryStream(Encoding.UTF8.GetBytes(pbmImage)));
+            return new FreeImageBitmap(new MemoryStream(pbmImage));
         }
     }
 }
