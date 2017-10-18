@@ -10,7 +10,7 @@ namespace SnailDev.EscPosParser.Example
     {
         static void Main(string[] args)
         {
-            // var filepath = @"D:\receipt-text.bin";
+             // var filepath = @"D:\receipt-text.bin";
              var filepath = @"D:\receipt-with-logo.bin";
 
             // parser text info

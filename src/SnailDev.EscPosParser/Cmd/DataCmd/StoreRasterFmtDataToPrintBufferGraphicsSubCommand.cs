@@ -1,5 +1,4 @@
-﻿using FreeImageAPI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -114,10 +113,9 @@ namespace SnailDev.EscPosParser
             return pbmBytes;
         }
 
-        public FreeImageBitmap AsPng()
+        public Stream AsPng()
         {
-            var pbmImage = AsPbm();
-            return new FreeImageBitmap(new MemoryStream(pbmImage));
+            return new MemoryStream(AsPbm());
         }
     }
 }

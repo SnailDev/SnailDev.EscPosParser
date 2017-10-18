@@ -45,7 +45,7 @@ namespace SnailDev.EscPosParser.Example
                         {
                             Directory.CreateDirectory(outDir);
                         }
-                        buff.AsPng().Save($"{outDir}receipt-with-logo.png", FreeImageAPI.FREE_IMAGE_FORMAT.FIF_PNG);
+                        new FreeImageAPI.FreeImageBitmap(buff.AsPng()).Save($"{outDir}receipt-with-logo.png", FreeImageAPI.FREE_IMAGE_FORMAT.FIF_PNG);
 
                         FileStream fs = new FileStream($"{outDir}receipt-with-logo.pbm", FileMode.Create, FileAccess.Write);                                 
                         fs.Write(buff.AsPbm(), 0, buff.AsPbm().Length);

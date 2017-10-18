@@ -67,7 +67,7 @@ namespace SnailDev.EscPosParser.Example
                         var buff = buffImage as StoreRasterFmtDataToPrintBufferGraphicsSubCommand;
                         var imgAlt = $"Image {buff.GetWidth()}x{buff.GetHeight()}";
 
-                        var imgSrc = $"data:image/png;base64,{BitMapToBase64(buff.AsPng().ToBitmap())}"; // ?
+                        var imgSrc = $"data:image/png;base64,{BitMapToBase64(new FreeImageAPI.FreeImageBitmap(buff.AsPng()).ToBitmap())}"; 
                         var imgWidth = buff.GetWidth() / 2; // scaling, images are quite high res and dwarf the text
 
 
