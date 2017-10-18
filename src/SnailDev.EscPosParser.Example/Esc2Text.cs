@@ -15,9 +15,9 @@ namespace SnailDev.EscPosParser.Example
             parser = new EscParser();
         }
 
-        public void PrintText()
+        public void PrintText(string filepath)
         {
-            var filepath = @"D:\receipt-with-logo.bin";
+            // var filepath = @"D:\receipt-with-logo.bin";
             var commands = parser.GetCommands(filepath);
             foreach (var command in commands)
             {

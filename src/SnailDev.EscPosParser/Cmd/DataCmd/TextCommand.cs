@@ -39,7 +39,17 @@ namespace SnailDev.EscPosParser
         /// <returns></returns>
         public string GetContent()
         {
-            return Data.ToString();
+            //return Data.ToString();
+
+            // Encoding bug fixed
+            var datastr = Data.ToString();
+            byte[] bytes = new byte[datastr.Length];
+            for (int i = 0; i < datastr.Length; i++)
+            {
+                bytes[i] = (byte)datastr[i];
+            }
+
+            return System.Text.Encoding.Default.GetString(bytes);
         }
     }
 }
