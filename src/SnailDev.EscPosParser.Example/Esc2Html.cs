@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SnailDev.EscPosParser.Example
 {
@@ -51,7 +49,7 @@ namespace SnailDev.EscPosParser.Example
                     }
                     // Block-level formatting such as text justification
                     var classes = GetBlockClasses(formatting);
-                    outPrint.Add($"<div class=\"{string.Join(" ", classes)}\">{sb.ToString()}</div>");
+                    outPrint.Add($"<div class=\"{string.Join(" ", classes.ToArray())}\">{sb.ToString()}</div>");
                     sb = new StringBuilder();
                 }
 
@@ -75,7 +73,7 @@ namespace SnailDev.EscPosParser.Example
                         sb.Append($"<img class=\"esc-bitimage\" src=\"{imgSrc}\" alt=\"{imgAlt}\" width=\"{imgWidth}px\" />");
                         // Append and flush buffer
                         var classes = GetBlockClasses(formatting);
-                        outPrint.Add($"<div class=\"{string.Join(" ", classes)}\">{sb.ToString()}</div>");
+                        outPrint.Add($"<div class=\"{string.Join(" ", classes.ToArray())}\">{sb.ToString()}</div>");
                         sb = new StringBuilder();
                     }
                 }
@@ -96,7 +94,7 @@ namespace SnailDev.EscPosParser.Example
             }
 
             FileStream fs = new FileStream($"{outDir}receipt-with-logo.html", FileMode.Create, FileAccess.Write);
-            var outData = Encoding.UTF8.GetBytes($"<!DOCTYPE html>\n{string.Join("\n", html)}\n");
+            var outData = Encoding.UTF8.GetBytes($"<!DOCTYPE html>\n{string.Join("\n", html.ToArray())}\n");
             fs.Write(outData, 0, outData.Length);
             fs.Flush();
             fs.Close();
@@ -134,7 +132,7 @@ namespace SnailDev.EscPosParser.Example
 
             // Provide span content as HTML
             var contentHtml = "";
-            if (string.IsNullOrWhiteSpace(content))
+            if (string.IsNullOrEmpty(content))
             {
                 contentHtml = "&nbsp;";
             }
@@ -148,7 +146,7 @@ namespace SnailDev.EscPosParser.Example
             {
                 return contentHtml;
             }
-            return $"<span class=\"{ string.Join(" ", classes) }\">{contentHtml}</span>";
+            return $"<span class=\"{ string.Join(" ", classes.ToArray()) }\">{contentHtml}</span>";
         }
 
         private List<string> GetBlockClasses(InlineFormatting formatting)
