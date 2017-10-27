@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnailDev.EscPosParser", "Sn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnailDev.EscPosParser.Example", "SnailDev.EscPosParser.Example\SnailDev.EscPosParser.Example.csproj", "{F31235F1-73ED-4665-AF55-B1697CA2A292}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnailDev.EscPosParser.Tests", "SnailDev.EscPosParser.Tests\SnailDev.EscPosParser.Tests.csproj", "{AE014E54-9DC2-44D3-9A34-D6F326E02399}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F31235F1-73ED-4665-AF55-B1697CA2A292}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F31235F1-73ED-4665-AF55-B1697CA2A292}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F31235F1-73ED-4665-AF55-B1697CA2A292}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE014E54-9DC2-44D3-9A34-D6F326E02399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE014E54-9DC2-44D3-9A34-D6F326E02399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE014E54-9DC2-44D3-9A34-D6F326E02399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE014E54-9DC2-44D3-9A34-D6F326E02399}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
